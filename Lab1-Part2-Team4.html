@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics-Center</title>
+    <link rel="stylesheet" href="Lab1-Part1-Team4.css">
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script> 
+</head>
+
+<body>
+    <form>
+        <input type="text" />
+        <select name="Type">
+            <option value="0">LapTop</option>
+            <option value="1">NoteBook</option>
+            <option value="2">Tablet</option>
+            <option value="3">CellPhone</option>
+        </select>
+
+        <select name="Action">
+            <option value="0">Archive</option>
+            <option value="1">Edit</option>
+            <option value="2">Delete</option>
+            <option value="3">Collection</option>
+        </select>
+    </form>
+
+    <table>
+        <caption>Electronic Devices</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Year</th>
+                <th>Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tr>
+            <td>
+                <input type="radio" class="FIn" name="animation1" value="1" checked>FadeIn
+                <input type="radio" class="FOut" name="animation1" value="1">FadeOut 
+                <img src="placeholder" alt="placeholder" id="img1"/>
+            </td>
+            <td>Name Placeholder</td>
+            <td>Company Placeholder</td>
+            <td>Year Placeholder</td>
+            <td>Type Placeholder</td>
+            <td>
+                <button>action1</button>
+                <button>action2</button>
+                <button>action3</button>
+                <button>action4</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" class="FIn" name="animation2" value="2" checked>FadeIn
+                <input type="radio" class="FOut" name="animation2" value="2">FadeOut 
+                <img src="placeholder" alt="placeholder" id="img2"/>
+            </td>
+            <td>Name Placeholder</td>
+            <td>Company Placeholder</td>
+            <td>Year Placeholder</td>
+            <td>Type Placeholder</td>
+            <td>
+                <button>action1</button>
+                <button>action2</button>
+                <button>action3</button>
+                <button>action4</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" class="FIn" name="animation3" value="3" checked>FadeIn
+                <input type="radio" class="FOut" name="animation3" value="3">FadeOut 
+                <img src="placeholder" alt="placeholder" id="img3"/>
+            </td>
+            <td>Name Placeholder</td>
+            <td>Company Placeholder</td>
+            <td>Year Placeholder</td>
+            <td>Type Placeholder</td>
+            <td>
+                <button>action1</button>
+                <button>action2</button>
+                <button>action3</button>
+                <button>action4</button>
+            </td>
+        </tr>
+    </table>
+    
+    <script>
+        $(document).ready(function() {
+            $(".FIn").on("click", function() {
+                const imgVal = $(this).val(); 
+                $("#img" + imgVal).fadeIn();
+            })
+
+            $(".FOut").on("click", function() {
+                const imgVal = $(this).val();
+                $("#img" + imgVal).fadeOut();
+            })
+        })
+    </script>
+</body>
+</html>
