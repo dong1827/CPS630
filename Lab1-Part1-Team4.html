@@ -11,6 +11,12 @@
 <body>
     <form>
         <input type="text" />
+        <select name="Action">
+            <option value="0">Archive</option>
+            <option value="1">Edit</option>
+            <option value="2">Delete</option>
+            <option value="3">Collection</option>
+        </select>
         <select name="Type">
             <option value="0">LapTop</option>
             <option value="1">NoteBook</option>
@@ -18,12 +24,6 @@
             <option value="3">CellPhone</option>
         </select>
 
-        <select name="Action">
-            <option value="0">Archive</option>
-            <option value="1">Edit</option>
-            <option value="2">Delete</option>
-            <option value="3">Collection</option>
-        </select>
     </form>
 
     <table>
@@ -40,51 +40,45 @@
         </thead>
 
         <tr>
-            <td>
-                <input type="radio" id="" />
-                <img src="placeholder" alt="placeholder"/>
-            </td>
-            <td>Name Placeholder</td>
-            <td>Company Placeholder</td>
-            <td>Year Placeholder</td>
-            <td>Type Placeholder</td>
-            <td>
-                <button>action1</button>
-                <button>action2</button>
-                <button>action3</button>
-                <button>action4</button>
+            <td class="image"><input type="radio" name="device" value="MacBook"> 
+            <img src="macbook.png" alt="MacBook"></td>
+            <td>Macbook Air</td>
+            <td>Apple</td>
+            <td>2021</td>
+            <td>Laptop</td>
+            <td class="buttons">
+                <button><img src="edit.png" alt="Edit">Edit</button>
+                <button><img src="cart.jpeg" alt="Cart">AddToCart</button>
+                <button> <img src="view.jpeg" alt="View">View</button>
+                <button> <img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
         <tr>
-            <td>
-                <input type="radio" id="" />
-                <img src="placeholder" alt="placeholder"/>
-            </td>
-            <td>Name Placeholder</td>
-            <td>Company Placeholder</td>
-            <td>Year Placeholder</td>
-            <td>Type Placeholder</td>
-            <td>
-                <button>action1</button>
-                <button>action2</button>
-                <button>action3</button>
-                <button>action4</button>
+            <td class="image"><input type="radio" name="device" value="iphone"> 
+            <img src="iphone.webp" alt="iphone"></td>
+            <td>Iphone 15</td>
+            <td>Apple</td>
+            <td>2024</td>
+            <td>CellPhone</td>
+            <td class="buttons">
+                <button><img src="edit.png" alt="Edit">Edit</button>
+                <button><img src="cart.jpeg" alt="Cart">AddToCart</button>
+                <button> <img src="view.jpeg" alt="View">View</button>
+                <button> <img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
         <tr>
-            <td>
-                <input type="radio" id="" />
-                <img src="placeholder" alt="placeholder"/>
-            </td>
-            <td>Name Placeholder</td>
-            <td>Company Placeholder</td>
-            <td>Year Placeholder</td>
-            <td>Type Placeholder</td>
-            <td>
-                <button>action1</button>
-                <button>action2</button>
-                <button>action3</button>
-                <button>action4</button>
+            <td class="image"><input type="radio" name="device" value="samsung"> 
+            <img src="samsung.webp" alt="samsung"></td>
+            <td>Galaxy s25</td>
+            <td>Samsung</td>
+            <td>2025</td>
+            <td>CellPhone</td>
+            <td class="buttons">
+                <button><img src="edit.png" alt="Edit">Edit</button>
+                <button><img src="cart.jpeg" alt="Cart">AddToCart</button>
+                <button> <img src="view.jpeg" alt="View">View</button>
+                <button> <img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
     </table>

@@ -1,0 +1,114 @@
+body {
+    background-color: #AEC6CF;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: center; 
+    padding: 15px; 
+}
+
+th {
+    background-color: #5961cc; 
+}
+
+td {
+    vertical-align: middle;
+}
+
+img {
+    display: block;
+    max-width: 80px; 
+    height: auto;
+    margin: 5px auto; 
+}
+
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+}
+
+
+.buttons button img {
+    width: 16px;
+    height: 16px;
+}
+
+.buttons button:hover {
+    background-color:#5961cc; 
+}
+
+/* Responsive Design for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    
+    * {
+        box-sizing: border-box; 
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    caption {
+        display: block;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+    td, th {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    img {
+        display: block; 
+        margin: 10px auto; 
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input, select {
+        width: 90%;
+        margin: 5px 0;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    
+    tr {
+        margin-bottom: 10px;
+    }
+   
+}
