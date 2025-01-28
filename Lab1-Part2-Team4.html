@@ -11,12 +11,6 @@
 <body>
     <form>
         <input type="text" />
-        <select name="Type">
-            <option value="0">LapTop</option>
-            <option value="1">NoteBook</option>
-            <option value="2">Tablet</option>
-            <option value="3">CellPhone</option>
-        </select>
 
         <select name="Action">
             <option value="0">Archive</option>
@@ -24,12 +18,22 @@
             <option value="2">Delete</option>
             <option value="3">Collection</option>
         </select>
+
+        <select name="Type">
+            <option value="0">LapTop</option>
+            <option value="1">NoteBook</option>
+            <option value="2">Tablet</option>
+            <option value="3">CellPhone</option>
+        </select>
+
+        
     </form>
 
     <table>
-        <caption>Electronic Devices</caption>
+        <caption><h1>Electronic Devices</h1></caption>
         <thead>
             <tr>
+                <th></th>
                 <th></th>
                 <th>Name</th>
                 <th>Company</th>
@@ -43,51 +47,63 @@
             <td>
                 <input type="radio" class="FIn" name="animation1" value="1" checked>FadeIn
                 <input type="radio" class="FOut" name="animation1" value="1">FadeOut 
-                <img src="placeholder" alt="placeholder" id="img1"/>
+                <img src="macbook.png" alt="MacBook" id="img1"></td>
             </td>
-            <td>Name Placeholder</td>
-            <td>Company Placeholder</td>
-            <td>Year Placeholder</td>
-            <td>Type Placeholder</td>
             <td>
-                <button>action1</button>
-                <button>action2</button>
-                <button>action3</button>
-                <button>action4</button>
+                <label class="showhideradio"><input type="radio" class="show" name="rowfade1" value="1" checked>Show</label>
+                <label class="showhideradio"><input type="radio" class="hide" name="rowfade1" value="1">Hide</label>
+            </td>
+            <td class="row1">Macbook Air</td>
+            <td class="row1">Apple</td>
+            <td class="row1">2021</td>
+            <td class="row1">Laptop</td>
+            <td class="buttons row1">
+                <button><img src="edit.png" alt="Edit">Edit</button>
+                <button><img src="cart.png" alt="Cart">AddToCart</button>
+                <button> <img src="view.png" alt="View">View</button>
+                <button> <img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
         <tr>
             <td>
                 <input type="radio" class="FIn" name="animation2" value="2" checked>FadeIn
                 <input type="radio" class="FOut" name="animation2" value="2">FadeOut 
-                <img src="placeholder" alt="placeholder" id="img2"/>
+                <img src="iphone.webp" alt="iphone" id="img2"/>
             </td>
-            <td>Name Placeholder</td>
-            <td>Company Placeholder</td>
-            <td>Year Placeholder</td>
-            <td>Type Placeholder</td>
             <td>
-                <button>action1</button>
-                <button>action2</button>
-                <button>action3</button>
-                <button>action4</button>
+                <label class="showhideradio"><input type="radio" class="show" name="rowfade2" value="2" checked>Show</label>
+                <label class="showhideradio"><input type="radio" class="hide" name="rowfade2" value="2">Hide</label>
+            </td>
+            <td class="row2">Iphone 15</td>
+            <td class="row2">Apple</td>
+            <td class="row2">2024</td>
+            <td class="row2">CellPhone</td>
+            <td class="buttons row2">
+                <button><img src="edit.png" alt="Edit">Edit</button>
+                <button><img src="cart.png" alt="Cart">AddToCart</button>
+                <button> <img src="view.png" alt="View">View</button>
+                <button> <img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
         <tr>
             <td>
                 <input type="radio" class="FIn" name="animation3" value="3" checked>FadeIn
                 <input type="radio" class="FOut" name="animation3" value="3">FadeOut 
-                <img src="placeholder" alt="placeholder" id="img3"/>
+                <img src="samsung.webp" alt="samsung" id="img3"/>
             </td>
-            <td>Name Placeholder</td>
-            <td>Company Placeholder</td>
-            <td>Year Placeholder</td>
-            <td>Type Placeholder</td>
             <td>
-                <button>action1</button>
-                <button>action2</button>
-                <button>action3</button>
-                <button>action4</button>
+                <label class="showhideradio"><input type="radio" class="show" name="rowfade3" value="3" checked>Show</label>
+                <label class="showhideradio"><input type="radio" class="hide" name="rowfade3" value="3">Hide</label>
+            </td>
+            <td class="row3">Galaxy s25</td>
+            <td class="row3">Samsung</td>
+            <td class="row3">2025</td>
+            <td class="row3">CellPhone</td>
+            <td class="buttons row3">
+                <button><img src="edit.png" alt="Edit">Edit</button>
+                <button><img src="cart.png" alt="Cart">AddToCart</button>
+                <button> <img src="view.png" alt="View">View</button>
+                <button> <img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
     </table>
@@ -102,6 +118,16 @@
             $(".FOut").on("click", function() {
                 const imgVal = $(this).val();
                 $("#img" + imgVal).fadeOut();
+            })
+
+            $(".show").on("click", function() {
+                const rowNum = $(this).val(); 
+                $(".row" + rowNum).fadeIn();
+            })
+
+            $(".hide").on("click", function() {
+                const rowNum = $(this).val();
+                $(".row" + rowNum).fadeOut();
             })
         })
     </script>
