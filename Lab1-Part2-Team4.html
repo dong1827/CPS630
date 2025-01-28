@@ -25,8 +25,6 @@
             <option value="2">Tablet</option>
             <option value="3">CellPhone</option>
         </select>
-
-        
     </form>
 
     <table>
@@ -47,7 +45,7 @@
             <td>
                 <input type="radio" class="FIn" name="animation1" value="1" checked>FadeIn
                 <input type="radio" class="FOut" name="animation1" value="1">FadeOut 
-                <img src="macbook.png" alt="MacBook" id="img1"></td>
+                <img src="macbook.png" alt="MacBook" id="img1">
             </td>
             <td>
                 <label class="showhideradio"><input type="radio" class="show" name="rowfade1" value="1" checked>Show</label>
@@ -60,8 +58,8 @@
             <td class="buttons row1">
                 <button><img src="edit.png" alt="Edit">Edit</button>
                 <button><img src="cart.png" alt="Cart">AddToCart</button>
-                <button> <img src="view.png" alt="View">View</button>
-                <button> <img src="archive.png" alt="archive">Archive</button>
+                <button><img src="view.png" alt="View">View</button>
+                <button><img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
         <tr>
@@ -81,8 +79,8 @@
             <td class="buttons row2">
                 <button><img src="edit.png" alt="Edit">Edit</button>
                 <button><img src="cart.png" alt="Cart">AddToCart</button>
-                <button> <img src="view.png" alt="View">View</button>
-                <button> <img src="archive.png" alt="archive">Archive</button>
+                <button><img src="view.png" alt="View">View</button>
+                <button><img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
         <tr>
@@ -102,34 +100,45 @@
             <td class="buttons row3">
                 <button><img src="edit.png" alt="Edit">Edit</button>
                 <button><img src="cart.png" alt="Cart">AddToCart</button>
-                <button> <img src="view.png" alt="View">View</button>
-                <button> <img src="archive.png" alt="archive">Archive</button>
+                <button><img src="view.png" alt="View">View</button>
+                <button><img src="archive.png" alt="archive">Archive</button>
             </td>
         </tr>
     </table>
     
     <script>
         $(document).ready(function() {
+            // Existing fade animations
             $(".FIn").on("click", function() {
                 const imgVal = $(this).val(); 
                 $("#img" + imgVal).fadeIn();
-            })
+            });
 
             $(".FOut").on("click", function() {
                 const imgVal = $(this).val();
                 $("#img" + imgVal).fadeOut();
-            })
+            });
 
             $(".show").on("click", function() {
                 const rowNum = $(this).val(); 
                 $(".row" + rowNum).fadeIn();
-            })
+            });
 
             $(".hide").on("click", function() {
                 const rowNum = $(this).val();
                 $(".row" + rowNum).fadeOut();
-            })
-        })
+            });
+
+            // Image hover zoom effect (excluding button images)
+            $("td > img").hover(
+                function() {
+                    $(this).css('transform', 'scale(1.2)');
+                },
+                function() {
+                    $(this).css('transform', 'scale(1)');
+                }
+            );
+        });
     </script>
 </body>
 </html>
