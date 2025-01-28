@@ -108,7 +108,7 @@
     
     <script>
         $(document).ready(function() {
-            // Existing fade animations
+            // fade animations
             $(".FIn").on("click", function() {
                 const imgVal = $(this).val(); 
                 $("#img" + imgVal).fadeIn();
@@ -129,7 +129,7 @@
                 $(".row" + rowNum).fadeOut();
             });
 
-            // Image hover zoom effect (excluding button images)
+            // image hover zoom effect (excluding button images)
             $("td > img").hover(
                 function() {
                     $(this).css('transform', 'scale(1.2)');
