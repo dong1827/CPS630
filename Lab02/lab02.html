@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>CPS630 Lab2-3</title>
+    </head>
+
+    <body>
+        <form action="create.php" method="get">
+            <input type="submit">Create Table
+        </form>
+
+        <form action="insert.php" method="get">
+            <label for="first_name">Enter First Name:</label>
+            <input type="text" id="first_name" name="first_name">
+
+            <label for="last_name">Enter Last Name:</label>
+            <input type="text" id="last_name" name="last_name">
+
+            <label for="age">Enter Age:</label>
+            <input type="text" id="age" name="age">
+
+            <input type="submit">Insert
+        </form>
+
+        <form action="delete.php" method="post">
+            <p>Delete base on value in certain columns</p>
+            <select name="column" id="column">
+                <option value="ID">ID</option>
+                <option value="first_name">First Name</option>
+                <option value="last_name">Last Name</option>
+                <option value="age">Age</option>
+            </select>
+
+            <label for="value">Value:</label>
+            <input type="text" id="value" name="value">
+
+            <input type="submit">Delete
+        </form>
+
+        <form action="select.php" method="get">
+            <p>Select base on value in certain columns. Leave blank to select all</p>
+            <select name="column2" id="column2">
+                <option value="ID">ID</option>
+                <option value="first_name">First Name</option>
+                <option value="last_name">Last Name</option>
+                <option value="age">Age</option>
+            </select>
+
+            <label for="value2">Value:</label>
+            <input type="text" id="value2" name="value2">
+
+            <input type="submit">Select
+        </form>
+
+
+    </body>
+</html>
