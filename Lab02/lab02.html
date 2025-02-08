@@ -10,12 +10,12 @@
             <input type="submit">Create Table
         </form>
 
-        <form action="insert.php" method="get">
-            <label for="first_name">Enter First Name:</label>
-            <input type="text" id="first_name" name="first_name">
+        <form action="insert.php" method="post">
+            <label for="firstname">Enter First Name:</label>
+            <input type="text" id="firstname" name="first_name">
 
             <label for="last_name">Enter Last Name:</label>
-            <input type="text" id="last_name" name="last_name">
+            <input type="text" id="lastname" name="last_name">
 
             <label for="age">Enter Age:</label>
             <input type="text" id="age" name="age">
@@ -27,8 +27,8 @@
             <p>Delete base on value in certain columns</p>
             <select name="column" id="column">
                 <option value="ID">ID</option>
-                <option value="first_name">First Name</option>
-                <option value="last_name">Last Name</option>
+                <option value="firstname">First Name</option>
+                <option value="lastname">Last Name</option>
                 <option value="age">Age</option>
             </select>
 
@@ -38,7 +38,7 @@
             <input type="submit">Delete
         </form>
 
-        <form action="select.php" method="get">
+        <form action="select.php" method="post">
             <p>Select base on value in certain columns. Leave blank to select all</p>
             <select name="column2" id="column2">
                 <option value="ID">ID</option>

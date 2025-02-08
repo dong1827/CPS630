@@ -2,12 +2,12 @@
 $servername = "localhost";
 $username = "username";
 $password = "password";
-$dbname = "testnew"
+$dbname = "testnew";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error())
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 $sql = "CREATE TABLE StRec (
@@ -18,11 +18,11 @@ age INT(3) NOT NULL
 )";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Table created successfully"
+    echo "Table created successfully";
 }
 else {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
-mysqli_close($conn)
+mysqli_close($conn);
 ?>
