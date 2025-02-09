@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.container {
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form {
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+}
+
+input[type="submit"] {
+    padding: 15px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #1a5089;
+}
+
