@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <TITLE>how to detect browser using javascript </TITLE>
+</head>
+<body>
+    <h1> Display Cross Browsers Compatibility Issues line1 Javascript version</h1>
+    <p> Display Cross Browsers Compatibility Issues line2 Javascript version</p>
+
+    <p id="browser"></p>
+    <p id="msg"></p>
+</body>
+
+<script>
+    res = navigator.userAgent;
+    msg = "";
+    if (res.includes("Edg")) {
+        msg = "Browser: Microsoft Edge";
+    }
+    else if (res.includes("Chrome")) {
+        msg = "Browser: Google Chrome";
+    }
+    else if (res.includes("Firefox")) {
+        msg = "Browser: Firefox";
+    }
+    else {
+        msg = "Browser unknown"
+    }
+    document.getElementById("browser").textContent = res;
+    document.getElementById("msg").textContent = msg;
+</script>
+</html>
