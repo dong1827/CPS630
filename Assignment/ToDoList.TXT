@@ -2,8 +2,8 @@ IT1
 Home Page (need css) 
 System logo
 About us (need css)
-Sign up  (need js/php) 
-Sign-in        ^  
+Sign up  (done) 
+Sign-in  (done)  
 Reviews  (need css)
 Shopping Cart   (need drag & drop) 
 
