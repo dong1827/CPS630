@@ -14,8 +14,9 @@
         <form id="sqlForm">
             <div>
                 <!--make a css to make this input larget-->
-                <input type="text" id="sql" name="sql" placeholder="Enter your select statement" required>
-                <button type="button" onclick="selectSQL()">Select</button>
+                <input type="text" id="userID" name="userID" placeholder="Enter a user ID, leave blank for none">
+                <input type="text" id="orderID" name="orderID" placeholder="Enter a order ID, leave blank for none">
+                <button type="button" onclick="fetchOrder()">search</button>
             </div>
         </form>
     </div>

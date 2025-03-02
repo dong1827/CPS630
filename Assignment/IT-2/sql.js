@@ -37,3 +37,34 @@ function selectSQL() {
     });
 }
 
+function fetchOrder() {
+    const user = $('#userID').value; 
+    const order = $('#orderID').value;
+
+    let sql = "SELECT * FROM Order ";
+    if(user) {
+        sql += "WHERE userID = " + user;
+        if(order) {
+            sql += " AND WHERE id = " + order;
+        }
+    }
+    else if (order) {
+        sql += "WHERE id = " + order;
+    }
+    else {
+        alert("Please enter at least one of user ID or order Id");
+        return
+    }
+
+    $.ajax({
+        url: 'select.php',
+        method: 'POST',
+        dataType: 'html',
+        data: { 
+            sql: sql 
+        },
+        success: function(response) {
+            $('#result').html(response);
+        }
+    });
+}
