@@ -1,0 +1,21 @@
+.dbContent {
+    display: none;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 4px solid grey;
+}
+
+.dbContent a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dbContent a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}

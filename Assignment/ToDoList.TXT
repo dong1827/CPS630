@@ -1,0 +1,20 @@
+IT1
+Home Page (need css) 
+System logo
+About us (need css)
+Sign up  (need js/php) 
+Sign-in        ^  
+Reviews  (need css)
+Shopping Cart   (need drag & drop) 
+
+Page with all available items 
+Branch locations 
+delivery 
+invoice summary + payment 
+order summary page 
+
+IT2
+Create (done)
+Adding records and imgs
+Search (working)
+DB Maintain (working)

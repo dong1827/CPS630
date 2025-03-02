@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSP</title>
+    <link rel="stylesheet" href="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="dbMaintain.js"></script>
+</head>
+
+<body>
+    <div>
+        <form id="sqlForm">
+            <div>
+                <!--make a css to make this input larget-->
+                <input type="text" id="sql" name="sql" placeholder="Enter your insert statement" required>
+                <button type="button" onclick="fetchSQL()">Insert</button>
+            </div>
+        </form>
+    </div>
+    <div class="result">
+        
+    </div>
+</body>
