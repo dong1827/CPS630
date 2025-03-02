@@ -63,7 +63,7 @@ else {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
-$sql = "CREATE TABLE Order (
+$sql = "CREATE TABLE OrderTable (
     id INT(6) AUTO_INCREMENT PRIMARY KEY,
     dateIssued DATE NOT NULL,
     dateReceived DATE,

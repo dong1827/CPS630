@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function fetchSQL() {
-    const sql = $('#sql').value;
+    const sql = $('#sql').val();
     $('#result').html("<p>loading...</p>");
     $.ajax({
         url: 'sql.php',
@@ -22,7 +22,7 @@ function fetchSQL() {
 }
 
 function selectSQL() {
-    const sql = $('#sql').value;
+    const sql = $('#sql').val();
     $('#result').html("<p>loading...</p>");
     $.ajax({
         url: 'select.php',
@@ -38,10 +38,10 @@ function selectSQL() {
 }
 
 function fetchOrder() {
-    const user = $('#userID').value; 
-    const order = $('#orderID').value;
+    const user = $('#userID').val(); 
+    const order = $('#orderID').val();
 
-    let sql = "SELECT * FROM Order ";
+    let sql = "SELECT * FROM OrderTable ";
     if(user) {
         sql += "WHERE userID = " + user;
         if(order) {
