@@ -3,28 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSP</title>
-    <link rel="stylesheet" href="">
-    <script src=""></script> 
+    <title>Services</title>
+    <link rel="stylesheet" href="Service.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-
 <body>
-    <!--I don't know what it means by "menus, sub-menus, images, input/output boxes". Please add them where you see fit-->
-    <div class="departments">
-        <button id="toFurniture">Furniture</button>
-        <button>Electronic(doesn't work)</button>
-        <button>Kitchen(doesn't work)</button>
-        <button>Beauty(doesn't work)</button>
-    </div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <div class="links">
+            <a href="home.html">Home</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="signup.html">Sign Up</a>
+            <a href="signin.html">Sign In</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="Service.html">Services</a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a></a>
+        </div>
+    </nav>
 
-    <div id="departmentDisplay">
-        <!--Updated through javascript-->
-        <p>Please select an department</p>
-    </div>
+    <header class="hero">
+        <h1>Our Services</h1>
+        <p>Explore our three main services: Shopping, Delivery, and Payment.</p>
+    </header>
 
-    <div id="cart">
-        <!--Put this on the right side of page so user can drag&drop-->
-        <!--JS update this part so it's empty-->
-    </div>
+    <section class="service-links">
+        <div class="service-option">
+            <h2>Shopping</h2>
+            <p>Browse and find the best furniture deals before adding to your cart.</p>
+            <a href="Shopping.html" class="service-btn">Go to Shopping</a>
+        </div>
+        <div class="service-option">
+            <h2>Delivery</h2>
+            <p>Choose the best delivery option to receive your furniture safely.</p>
+            <a href="Delivery.html" class="service-btn">Go to Delivery</a>
+        </div>
+        <div class="service-option">
+            <h2>Payment</h2>
+            <p>Make secure payments with our trusted transaction system.</p>
+            <a href="Payment.html" class="service-btn">Go to Payment</a>
+        </div>
+    </section>
 
+    <footer>
+        <p>&copy; 2025 EasyShop. All rights reserved.</p>
+    </footer>
 </body>
+</html>
