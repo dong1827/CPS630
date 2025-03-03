@@ -1,21 +1,92 @@
-.dbContent {
-    display: none;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    z-index: 1;
-    border-radius: 4px solid grey;
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #97b5d0;
+    text-align: center;
 }
 
-.dbContent a {
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004080;
+    padding: 15px 20px;
+}
+
+.logo img{
+    width: 100px; 
+    height: auto; 
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 18px;
+}
+
+.links a:hover {
+    color: rgb(187, 224, 237);
+    cursor: pointer;
+}
+
+.hero {
     color: black;
-    padding: 12px 16px;
-    display: block;
+    padding: 100px 20px;
 }
 
-.dbContent a:hover {
-    background-color: #f1f1f1;
+.hero h1 {
+    font-size: 36px;
 }
 
-.show {
-    display: block;
+.hero p {
+    font-size: 24px;
 }
+
+.service-btn {
+    display: inline-block;
+    padding: 15px 30px; 
+    background-color: #004080; 
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.service-btn:hover {
+    background-color: #0059b3; 
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.feature {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+

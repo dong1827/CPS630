@@ -17,4 +17,13 @@
     <div id="items">
 
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!localStorage.getItem("userLoggedIn")) {
+                alert("You must be signed in to access the cart!");
+                window.location.href = "SignIn.html"; 
+            }
+        });
+     </script>
+        
 </body>

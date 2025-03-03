@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #496edc;
+    background-color: #97b5d0;
 }
 
 .form-container {
@@ -41,7 +41,7 @@ input:focus {
     box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
 }
 
-button {
+.signIn{
     width: 100%;
     padding: 12px;
     margin-top: 10px;
@@ -51,12 +51,12 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: 0.3s;
 }
 
-button:hover {
+.signIn:hover {
     background-color: #0056b3;
 }
+
 
 p {
     margin-top: 15px;
