@@ -1,7 +1,7 @@
 IT1
 Home Page (done) 
 System logo (done)
-About us (need css)
+About us (done)
 Sign up  (done) 
 Sign-in  (done)  
 Reviews  (need css)
