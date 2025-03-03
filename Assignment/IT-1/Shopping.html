@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniture Shopping</title>
+  <link rel="stylesheet" href="Shopping.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <header class="hero">
+        <h1>Furniture Shopping</h1>
+        <p>Browse our furniture collection and add your favorites to the cart <span id="drop-area">here</span>.</p>
+    </header>
+
+    <section class="products">
+        <div class="product" draggable="true" data-id="1" data-price="550">
+            <img src="images/sofa.jpeg" alt="Sofa">
+            <h2>Leather Sofa</h2>
+            <p class="price">$550</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" draggable="true" data-id="2" data-price="50">
+            <img src="images/rug.webp" alt="Rug">
+            <h2>Colourful Rug</h2>
+            <p class="price">$50</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" draggable="true" data-id="3" data-price="900">
+            <img src="images/reclining-chair.webp" alt="Chair">
+            <h2>Reclining Chair</h2>
+            <p class="price">$900</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" draggable="true" data-id="4" data-price="200">
+            <img src="images/desk.jpeg" alt="Desk">
+            <h2>Branch Standing Desk</h2>
+            <p class="price">$200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" draggable="true" data-id="5" data-price="600">
+            <img src="images/desk2.jpeg" alt="Desk2">
+            <h2>SMUG Standing Desk</h2>
+            <p class="price">$600</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" draggable="true" data-id="6" data-price="3000">
+            <img src="images/bed.webp" alt="Desk">
+            <h2>Wooden Frame Bed</h2>
+            <p class="price">$3000</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </section>
+
+    <script src="Shopping.js"></script>
+    <script src="Navbar.js" defer></script>
+    <footer>
+        <p>&copy; 2025 EasyShop. All rights reserved.</p>
+    </footer>
+</body>
+</html>

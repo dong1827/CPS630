@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSP</title>
-    <link rel="stylesheet" href="">
-    <script src=""></script> 
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="Cart.css">
 </head>
 
 <body>
+    <div id="navbar-container"></div>
+
     <div class="msg">
-        <p>Your cart:</p>
-        <p>Add some more designs idk</p>
+        <h2>Your Cart</h2>
+        <p>Review your selected items before checkout.</p>
     </div>
 
-    <div id="items">
-
+    <div id="cart-items"></div>
+    
+    <div class="cart-summary">
+        <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+        <button id="checkout-btn">Proceed to Checkout</button>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let isLoggedIn = localStorage.getItem("userLoggedIn");
-            if (!isLoggedIn || isLoggedIn !== "true") {
-                alert("You must be signed in to access the cart!");
-                window.location.href = "SignIn.html"; 
-            }
-        });
-     </script>
-        
+
+    <script src="Cart.js"></script>
+    <script src="Navbar.js" defer></script>
 </body>
+</html>
