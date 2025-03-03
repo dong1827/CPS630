@@ -17,9 +17,13 @@ document.getElementById("signIn").addEventListener("click", function (event) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            localStorage.setItem("loginId", username);
+            localStorage.setItem("userLoggedIn", "true");  
+            localStorage.setItem("loginId", username); 
+        
+            alert("Sign in successful!"); 
             window.location.href = "Home.html"; 
-        } else {
+        }
+         else {
             alert("Error: " + data.message); 
         }
     })

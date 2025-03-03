@@ -19,7 +19,8 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            if (!localStorage.getItem("userLoggedIn")) {
+            let isLoggedIn = localStorage.getItem("userLoggedIn");
+            if (!isLoggedIn || isLoggedIn !== "true") {
                 alert("You must be signed in to access the cart!");
                 window.location.href = "SignIn.html"; 
             }
