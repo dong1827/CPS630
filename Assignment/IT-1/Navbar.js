@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
+
     fetch("navbar.html")
         .then(response => {
             if (!response.ok) {
@@ -24,5 +24,29 @@ document.addEventListener("DOMContentLoaded", function () {
             }
       })
       .catch(error => console.error("Error loading navbar:", error));
+
+    fetch("../IT-2/checkAdmin.php", {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            username: localStorage.getItem("loginId")
+        })
+
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data ===  "Admin") {
+            document.getElementById("dbM").classList.toggle("show");
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
+
+function toggleDropdown() {
+    document.getElementById("dbDropDown").classList.toggle("show");
+}
   
