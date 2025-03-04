@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery - Online Service Platform</title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Delivery.css">
+    <style>
+        #delivery-map {
+            height: 400px;
+            width: 100%;
+            border: 2px solid #004080;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="navbar-container"></div>
+
+    <main class="container">
+        <h1>Delivery Service</h1>
+        
+        <div class="delivery-container">
+            <div class="delivery-options">
+                <h2>Select Delivery Options</h2>
+                
+                <div class="form-group">
+                    <label for="warehouse-select">Select Warehouse (Source):</label>
+                    <select id="warehouse-select" required>
+                        <option value="">--Select a Warehouse--</option>
+                        <!-- Options will be populated by js -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="destination-address">Delivery Address (Destination):</label>
+                    <input type="text" id="destination-address" placeholder="Enter your delivery address" value="" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="delivery-date">Delivery Date:</label>
+                    <input type="date" id="delivery-date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="delivery-time">Delivery Time:</label>
+                    <input type="time" id="delivery-time" required>
+                </div>
+                
+                <button id="calculate-route-btn" class="service-btn">Calculate Delivery Route</button>
+            </div>
+            
+            <div class="delivery-map-container">
+
+                <div id="delivery-map"></div>
+                
+                <div class="delivery-info">
+                    <h3>Delivery Information</h3>
+                    <p><strong>Distance:</strong> <span id="delivery-distance">-</span></p>
+                    <p><strong>Estimated Time:</strong> <span id="delivery-time">-</span></p>
+                    <p><strong>Delivery Cost:</strong> <span id="delivery-cost">-</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="delivery-actions">
+            <form id="delivery-form" action="../IT-2/ProcessTrip.php" method="post">
+
+                <input type="hidden" id="src-code-input" name="srcCode">
+                <input type="hidden" id="dst-code-input" name="dstCode">
+                <input type="hidden" id="distance-input" name="distance">
+                <input type="hidden" id="duration-input" name="duration">
+                <input type="hidden" id="delivery-cost-input" name="deliveryCost">
+                <input type="hidden" id="trip-id-input" name="tripId">
+                
+                <button type="button" class="service-btn" onclick="window.location.href='Cart.html'">Back to Cart</button>
+                <button type="button" class="service-btn" onclick="submitTripData()">Save Delivery Details</button>
+                <button type="button" id="proceed-payment-btn" class="service-btn" onclick="window.location.href='Payment.html'" disabled>Proceed to Payment</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Online Service Platform. All rights reserved.</p>
+    </footer>
+
+ 
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9SxY_FAZ4sEH0W12E3sRJwSjz5AceKlA&callback=initMap&onerror=mapLoadError">
+    </script>
+    
+ 
+    <script src="DeliveryMap.js"></script>
+    <script src="Navbar.js" defer></script>
+    
+
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const formattedDate = `${yyyy}-${mm}-${dd}`;
+            
+            const dateInput = document.getElementById('delivery-date');
+            if (dateInput) {
+                dateInput.min = formattedDate;
+                dateInput.value = formattedDate;
+            }
+            
+
+            const timeInput = document.getElementById('delivery-time');
+            if (timeInput) {
+                timeInput.value = "12:00";
+            }
+        });
+    </script>
+</body>
+</html>
