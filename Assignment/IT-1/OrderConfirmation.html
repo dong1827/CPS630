@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - OSP</title>
+    <link rel="stylesheet" href="OrderConfirmation.css">
+    <link rel="stylesheet" href="Home.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    
+    <div class="container">
+        <div class="confirmation-card">
+            <div class="header">
+                <h1>Order Confirmation</h1>
+                <div class="checkmark">✓</div>
+            </div>
+            
+            <div class="content">
+                <p class="thank-you">Thank you for your order!</p>
+                
+                <div class="order-details">
+                    <h2>Order Information</h2>
+                    <div class="detail-row">
+                        <span class="label">Order Number:</span>
+                        <span class="value" id="order-id">Loading...</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Order Date:</span>
+                        <span class="value" id="order-date">Loading...</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Expected Delivery:</span>
+                        <span class="value" id="delivery-date">Loading...</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Payment Code:</span>
+                        <span class="value" id="payment-code">Loading...</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Total Amount:</span>
+                        <span class="value" id="total-price">Loading...</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="Home.html" class="home-btn">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="OrderConfirmation.js"></script>
+    <script src="Navbar.js" defer></script>
+</body>
+</html>

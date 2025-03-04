@@ -14,6 +14,7 @@ function loadCart() {
     let cartContainer = document.getElementById("cart-items");
     let cartTotal = document.getElementById("cart-total");
     let checkoutButton = document.getElementById("checkout-btn");
+    sessionStorage.setItem("cartItems", JSON.stringify(cart));
 
     cartContainer.innerHTML = ""; 
     let total = 0;
@@ -53,7 +54,7 @@ function removeFromCart(index) {
 }
 
 document.getElementById("checkout-btn").addEventListener("click", function () {
-    alert("Checkout completed! Order placed.");
-    localStorage.removeItem("cart"); 
-    loadCart();
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    sessionStorage.setItem("cartItems", JSON.stringify(cart));
+    window.location.href = "Payment.html";
 });
