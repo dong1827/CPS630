@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSP</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="dbStyles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="sql.js"></script>
 </head>
 
 <body>
-    <div>
+    <div class="container">
+        <h1>Delete Data from Table</h1>
         <form id="sqlForm">
-            <div>
-                <!--make a css to make this input larget-->
-                <input type="text" id="table" name="table" placeholder="Enter the table you want to delete" required>
-                <input type="text" id="col" name="col" placeholder="Enter the column" required>
-                <input type="text" id="val" name="val" placeholder="Enter the values you want to delete (i.e. WHERE col = val)" required>
-                <button type="button" onclick="deleteSQL()">Delete</button>
+            <div class="form-group">
+                <input type="text" id="table" name="table" placeholder="Enter the table you want to delete from" required>
             </div>
+            <div class="form-group">
+                <input type="text" id="col" name="col" placeholder="Enter the column for condition" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="val" name="val" placeholder="Enter the condition value (e.g., WHERE col = val)" required>
+            </div>
+            <button type="button" onclick="deleteSQL()">Delete</button>
         </form>
     </div>
-    <div id="result">
-        
-    </div>
+
+    <div id="result"></div>
+
 </body>

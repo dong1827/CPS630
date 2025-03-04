@@ -29,8 +29,29 @@ body {
     color: rgb(187, 224, 237);
     cursor: pointer;
 }
+
+.dbMaintain {
+    display: none;
+}
+
+.dbContent {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 .msg {
     margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.2rem;
 }
 
 #cart-items {
@@ -59,7 +80,7 @@ body {
     margin-top: 10px;
 }
 
-button {
+#remove {
     background-color: red;
     color: white;
     border: none;
@@ -73,9 +94,11 @@ button {
 }
 
 #checkout-btn {
+    margin: 20px auto 0;
     background-color: green;
     color: white;
     padding: 10px;
     font-size: 1.2em;
+    border: none;
     cursor: pointer;
 }

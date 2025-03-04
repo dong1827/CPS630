@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSP</title>
-    <link rel="stylesheet" href="">
+    <title>Search Orders</title>
+    <link rel="stylesheet" href="dbStyles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="sql.js"></script>
 </head>
 
 <body>
-    <div>
+    <div class="container">
+        <h1>Search Orders</h1>
         <form id="sqlForm">
-            <div>
-                <!--make a css to make this input larget-->
+            <div class="form-group">
                 <input type="text" id="userID" name="userID" placeholder="Enter a user ID, leave blank for none">
-                <input type="text" id="orderID" name="orderID" placeholder="Enter a order ID, leave blank for none">
-                <button type="button" onclick="fetchOrder()">search</button>
             </div>
+            <div class="form-group">
+                <input type="text" id="orderID" name="orderID" placeholder="Enter an order ID, leave blank for none">
+            </div>
+            <button type="button" onclick="fetchOrder()">Search</button>
         </form>
     </div>
-    <div id="result">
-        
-    </div>
+    <div id="result"></div>
 </body>
+</html>

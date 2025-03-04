@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSP</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="dbStyles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="sql.js"></script>
 </head>
 
 <body>
-    <div>
+    <div class="container">
+        <h1>Select Data from Table</h1>
         <form id="sqlForm">
-            <div>
-                <!--make a css to make this input larget-->
-                <input type="text" id="table" name="table" placeholder="Enter table you want to select" required>
-                <input type="text" id="columns" name="columns" placeholder="Enter columns you want to select (leave blank for all)">
-                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the condition column (leave blank for none)">
-                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the condition value">
-                <button type="button" onclick="selectSQL()">Select</button>
+            <div class="form-group">
+                <input type="text" id="table" name="table" placeholder="Enter table you want to select from" required>
             </div>
+            <div class="form-group">
+                <input type="text" id="columns" name="columns" placeholder="Enter columns you want to select (leave blank for all)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the condition column (leave blank for none)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the condition value">
+            </div>
+            <button type="button" onclick="selectSQL()">Select</button>
         </form>
     </div>
-    <div id="result">
-        
-    </div>
+
+    <div id="result"></div>
 </body>
+</html>

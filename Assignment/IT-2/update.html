@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSP</title>
-    <link rel="stylesheet" href="">
+    <title>OSP - Update</title>
+    <link rel="stylesheet" href="dbStyles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="sql.js"></script>
 </head>
 
 <body>
-    <div>
+    <div class="container">
+        <h1>Update Data in Table</h1>
         <form id="sqlForm">
-            <div>
-                <!--make a css to make this input larget-->
-                <input type="text" id="table" name="table" placeholder="Enter the table you want to delete" required>
-                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the condition column" required>
-                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the condition value" required>
-                <input type="text" id="setCol" name="setCol" placeholder="Enter the column you want to update" required>
-                <input type="text" id="setVal" name="setVal" placeholder="Enter the value you want it to update to" required>
-                <button type="button" onclick="updateSQL()">Update</button>
+            <div class="form-group">
+                <input type="text" id="table" name="table" placeholder="Enter the table you want to update" required>
             </div>
+            <div class="form-group">
+                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the condition column (where clause)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the condition value (where clause)" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="setCol" name="setCol" placeholder="Enter the column you want to update" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="setVal" name="setVal" placeholder="Enter the new value to update" required>
+            </div>
+            <button type="button" onclick="updateSQL()">Update</button>
         </form>
     </div>
-    <div id="result">
-        
-    </div>
+
+    <div id="result"></div>
+
 </body>
+</html>

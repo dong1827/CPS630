@@ -30,6 +30,18 @@ body {
     cursor: pointer;
 }
 
+.dbMaintain {
+    display: none;
+}
+
+.dbContent {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 .hero {
     background-color: #4CAF50;
     color: white;

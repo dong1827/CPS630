@@ -35,7 +35,7 @@ function loadCart() {
                 <h3>${item.name}</h3>
                 <p>Price: $${item.price}</p>
                 <p>Quantity: ${item.quantity}</p>
-                <button onclick="removeFromCart(${index})">Remove</button>
+                <button id="remove" onclick="removeFromCart(${index})">Remove</button>
             </div>
         `;
         cartContainer.appendChild(itemElement);
