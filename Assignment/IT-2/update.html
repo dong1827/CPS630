@@ -14,8 +14,12 @@
         <form id="sqlForm">
             <div>
                 <!--make a css to make this input larget-->
-                <input type="text" id="sql" name="sql" placeholder="Enter your update statement" required>
-                <button type="button" onclick="fetchSQL()">Update</button>
+                <input type="text" id="table" name="table" placeholder="Enter the table you want to delete" required>
+                <input type="text" id="setCol" name="setCol" placeholder="Enter the condition column" required>
+                <input type="text" id="setVal" name="setVal" placeholder="Enter the condition value" required>
+                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the column you want to update" required>
+                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the value you want it to update to" required>
+                <button type="button" onclick="updateSQL()">Delete</button>
             </div>
         </form>
     </div>

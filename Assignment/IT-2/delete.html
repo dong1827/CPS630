@@ -14,8 +14,10 @@
         <form id="sqlForm">
             <div>
                 <!--make a css to make this input larget-->
-                <input type="text" id="sql" name="sql" placeholder="Enter your delete statement" required>
-                <button type="button" onclick="fetchSQL()">Delete</button>
+                <input type="text" id="table" name="table" placeholder="Enter the table you want to delete" required>
+                <input type="text" id="col" name="col" placeholder="Enter the column" required>
+                <input type="text" id="val" name="val" placeholder="Enter the values you want to delete (i.e. WHERE col = val)" required>
+                <button type="button" onclick="deleteSQL()">Delete</button>
             </div>
         </form>
     </div>

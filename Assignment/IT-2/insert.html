@@ -14,8 +14,10 @@
         <form id="sqlForm">
             <div>
                 <!--make a css to make this input larget-->
-                <input type="text" id="sql" name="sql" placeholder="Enter your insert statement" required>
-                <button type="button" onclick="fetchSQL()">Insert</button>
+                <input type="text" id="table" name="table" placeholder="Enter the table you want to insert" required>
+                <input type="text" id="col" name="col" placeholder="Enter the columns you want to insert (separated by ,)" required>
+                <input type="text" id="val" name="val" placeholder="Enter the values you want to insert (separated by ,)" required>
+                <button type="button" onclick="insertSQL()">Insert</button>
             </div>
         </form>
     </div>

@@ -14,7 +14,10 @@
         <form id="sqlForm">
             <div>
                 <!--make a css to make this input larget-->
-                <input type="text" id="sql" name="sql" placeholder="Enter your select statement" required>
+                <input type="text" id="table" name="table" placeholder="Enter table you want to select" required>
+                <input type="text" id="columns" name="columns" placeholder="Enter columns you want to select (leave blank for all)">
+                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the condition column (leave blank for none)">
+                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the condition value">
                 <button type="button" onclick="selectSQL()">Select</button>
             </div>
         </form>

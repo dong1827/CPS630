@@ -5,8 +5,7 @@ $(document).ready(function() {
     });
 });
 
-function fetchSQL() {
-    const sql = $('#sql').val();
+function fetchSQL(sql) {
     $('#result').html("<p>loading...</p>");
     $.ajax({
         url: 'sql.php',
@@ -21,8 +20,47 @@ function fetchSQL() {
     });
 }
 
+function updateSQL() {
+    const table = $('#table').val();
+    const setCol = $('#setCol').val();
+    const setVal = $('#setVal').val();
+    const whereCol = $('#whereCol').val(); 
+    const whereVal = $('#whereVal').val(); 
+
+    const sql = `UPDATE ${table} SET ${setCol} = '${setVal}' WHERE ${whereCol} = '${whereVal}'`;
+    fetchSQL(sql);
+}
+
+function deleteSQL() {
+    const table = $('#table').val();
+    const col = $('#col').val();
+    const val = $('#val').val();
+
+    const sql = `DELETE FROM ${table} WHERE ${col} = '${val}'`;
+    fetchSQL(sql);
+}
+
+function insertSQL() {
+    const table = $('#table').val();
+    const col = $('#col');
+    const val = $('#val');
+
+    const sql = `INSERT INTO ${table} (${col}) VALUES ('${val}')`;
+    fetchSQL(sql);
+}
+
 function selectSQL() {
-    const sql = $('#sql').val();
+    const table = $('#table').val();
+    const columns = $('#columns').val() || '*';
+    const whereCol = $('#whereCol').val();
+    const whereVal = $('#whereVal').val();
+
+    let sql = `SELECT ${columns} FROM ${table}`;
+
+    if (whereCol && whereVal) {
+        sql += ` WHERE ${whereCol} = '${whereVal}'`;
+    }
+
     $('#result').html("<p>loading...</p>");
     $.ajax({
         url: 'select.php',
