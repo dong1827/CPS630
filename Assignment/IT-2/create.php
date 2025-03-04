@@ -1,4 +1,4 @@
-<?php 
+9<?php 
 include 'conn.php';
 
 $sql = "CREATE TABLE User (

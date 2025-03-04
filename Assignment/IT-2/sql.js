@@ -42,10 +42,11 @@ function deleteSQL() {
 
 function insertSQL() {
     const table = $('#table').val();
-    const col = $('#col');
-    const val = $('#val');
+    const col = $('#col').val();
+    let val = $('#val').val();
 
-    const sql = `INSERT INTO ${table} (${col}) VALUES ('${val}')`;
+    let newVal = val.replace(", ", "', '");
+    const sql = `INSERT INTO ${table} (${col}) VALUES ('${newVal}')`;
     fetchSQL(sql);
 }
 

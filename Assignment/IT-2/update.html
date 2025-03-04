@@ -6,7 +6,7 @@
     <title>OSP</title>
     <link rel="stylesheet" href="">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="dbMaintain.js"></script>
+    <script src="sql.js"></script>
 </head>
 
 <body>
@@ -15,11 +15,11 @@
             <div>
                 <!--make a css to make this input larget-->
                 <input type="text" id="table" name="table" placeholder="Enter the table you want to delete" required>
-                <input type="text" id="setCol" name="setCol" placeholder="Enter the condition column" required>
-                <input type="text" id="setVal" name="setVal" placeholder="Enter the condition value" required>
-                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the column you want to update" required>
-                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the value you want it to update to" required>
-                <button type="button" onclick="updateSQL()">Delete</button>
+                <input type="text" id="whereCol" name="whereCol" placeholder="Enter the condition column" required>
+                <input type="text" id="whereVal" name="whereVal" placeholder="Enter the condition value" required>
+                <input type="text" id="setCol" name="setCol" placeholder="Enter the column you want to update" required>
+                <input type="text" id="setVal" name="setVal" placeholder="Enter the value you want it to update to" required>
+                <button type="button" onclick="updateSQL()">Update</button>
             </div>
         </form>
     </div>
