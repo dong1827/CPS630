@@ -1,7 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const addToCartButtons = document.querySelectorAll(".add-to-cart");
     const dropArea = document.getElementById("drop-area");
-    const products = document.querySelectorAll(".product");
+    const productList = document.querySelector(".products"); 
+
+    function fetchProducts() {
+        fetch("../IT-2/shopping.php") 
+            .then(response => response.json())
+            .then(items => {
+                console.log("Fetched Items:", items); 
+
+                productList.innerHTML = ""; 
+
+                items.forEach(item => {
+                    const productDiv = document.createElement("div");
+                    productDiv.classList.add("product");
+                    productDiv.setAttribute("data-id", item.itemId);
+                    productDiv.setAttribute("data-price", item.price);
+                    productDiv.setAttribute("draggable", "true");
+
+                    productDiv.innerHTML = `
+                        <img src="${item.imagePath}" alt="${item.itemName}">
+                        <h2>${item.itemName}</h2>
+                        <p class="price">$${item.price}</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    `;
+
+                    productList.appendChild(productDiv);
+                    const addToCartButton = productDiv.querySelector(".add-to-cart");
+                    addToCartButton.addEventListener("click", function () {
+                        addToCart(productDiv);
+                    });
+
+                    productDiv.addEventListener("dragstart", function (event) {
+                        event.dataTransfer.setData("product-id", item.itemId);
+                    });
+                });
+            })
+            .catch(error => console.error("Error fetching products:", error));
+    }
 
     function addToCart(product) {
         const productId = product.getAttribute("data-id");
@@ -31,20 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert(`${productName} has been added to the cart!`);
     }
 
-    addToCartButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            addToCart(this.closest(".product"));
-        });
-    });
-
-    products.forEach(product => {
-        product.setAttribute("draggable", "true");
-
-        product.addEventListener("dragstart", function (event) {
-            event.dataTransfer.setData("product-id", product.getAttribute("data-id"));
-        });
-    });
-
     dropArea.addEventListener("dragover", function (event) {
         event.preventDefault();
         dropArea.classList.add("hover"); 
@@ -66,5 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-});
 
+    fetchProducts(); 
+});
