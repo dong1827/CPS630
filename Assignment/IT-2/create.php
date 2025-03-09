@@ -89,7 +89,8 @@ $sql = "CREATE TABLE Item (
     itemName VARCHAR(100) NOT NULL,
     price FLOAT(10,2) NOT NULL,
     madeIn VARCHAR(50),
-    departmentCode INT(6) NOT NULL
+    departmentCode INT(6) NOT NULL,
+    ImagePath VARCHAR(50)
 )";
     
 if (mysqli_query($conn, $sql)) {
