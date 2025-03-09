@@ -50,7 +50,7 @@ myapp.controller('myController', function ($scope, $http) {
                       orderBy:sortField:reverse">
            <td>{{country.name.common }}</td>
            <td>{{country.population | number}}</td>
-           <td>{{country.capital}}</td>
+           <td>{{country.capital[0]}}</td>
       </tr>
     </table>
 </body>

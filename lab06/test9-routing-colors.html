@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/!">Main</a></p>
+
+<a href="#!red">Red</a>
+<a href="#!green">Green</a>
+<a href="#!blue">Blue</a>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm"
+    })
+    .when("/red", {
+        template : "<p ng-style='{color: style}'>Change color</p>",
+        controller : "redCtrl"
+    })
+    .when("/green", {
+        template : "<p ng-style='{color: style}'>Change color</p>",
+        controller : "greenCtrl"
+    })
+    .when("/blue", {
+        template : "<p ng-style='{color: style}'>Change color</p>",
+        controller : "blueCtrl"
+    });
+});
+
+app.controller("redCtrl", function ($scope) {
+    $scope.style = "red";
+});
+app.controller("greenCtrl", function ($scope) {
+    $scope.style = "green";
+});
+app.controller("blueCtrl", function ($scope) {
+    $scope.style = "blue";
+});
+
+</script>
+
+<p>Click on the links to navigate to "red.htm", "green.htm", "blue.htm", or back to "main.htm"</p>
+</body>
+</html>
