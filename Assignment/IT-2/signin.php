@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         $salt = $user["salt"];
-        $hashedPassword = $password.$salt;
+        $hashedPassword = md5($password.$salt);
 
         if ($hashedPassword == $user["password"]) {
             $response["success"] = true;

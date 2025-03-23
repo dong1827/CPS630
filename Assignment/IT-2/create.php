@@ -105,7 +105,7 @@ $sql = "CREATE TABLE Reviews (
     itemId INT(6) NOT NULL,
     username VARCHAR(50) NOT NULL,
     comment TEXT,
-    rating int(5)
+    rating int(5),
     PRIMARY KEY (itemId, username),
     FOREIGN KEY (itemId) REFERENCES Item(itemId),
     FOREIGN KEY (username) REFERENCES User(loginId)

@@ -31,11 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $salt = base64_encode(mcrypt_create_iv(12), MCRYPT_DEV_URANDOM);
+    $salt = base64_encode(random_bytes(12));
     $hashedPassword = md5($password.$salt);
 
     $stmt = $conn->prepare("INSERT INTO User (name, telNo, email, address, cityCode, loginId, password, salt) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $name, $telNo, $email, $address, $cityCode, $loginId, $hashedPassword, $salt);
+    $stmt->bind_param("ssssssss", $name, $telNo, $email, $address, $cityCode, $loginId, $hashedPassword, $salt);
 
     if ($stmt->execute()) {
         $response["success"] = true;
