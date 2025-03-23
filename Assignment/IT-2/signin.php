@@ -20,12 +20,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+        $salt = $user["salt"];
+        $hashedPassword = $password.$salt;
+
+        if ($hashedPassword == $user["password"]) {
+            $response["success"] = true;
+            $response["message"] = "Login successful!";
+        } else {
+            $response["message"] = "Incorrect password!";
+        }
+        /*
         if (password_verify($password, $user["password"])) {
             $response["success"] = true;
             $response["message"] = "Login successful!";
         } else {
             $response["message"] = "Incorrect password!";
         }
+        */
     } else {
         $response["message"] = "User not found!";
     }

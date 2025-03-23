@@ -1,10 +1,97 @@
-<html lang="en">
+<html lang="en" ng-app="review">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews</title>
+    <script src="https://code.angularjs.org/1.5.0/angular.min.js" ></script>
+    <script src="Reviews.js"></script>
 </head>
-<body>
-    
+
+<body ng-controller="reviewController">
+    <div id="write"> 
+        <button onclick="toggleForm()">Write a Review</button>
+        <form class="hidden" id="reviewForm" action="review.php" method="POST">
+            <input type="hidden" id="username" name="username">
+            <label>
+                <input type="text" id="itemID">
+                Enter the Id of the item you want to leave a review
+            </label><br>
+            <label>
+                <input type="text" id="reviewText">
+                Write a review
+            </label><br>
+
+            <label>
+                <input type="radio" name="rating" value="1">
+                1
+            </label><br>
+            <label>
+                <input type="radio" name="rating" value="2">
+                2
+            </label><br>
+            <label>
+                <input type="radio" name="rating" value="3">
+                3
+            </label><br>
+            <label>
+                <input type="radio" name="rating" value="4">
+                4
+            </label><br>
+            <label>
+                <input type="radio" name="rating" value="5">
+                5
+            </label><br>
+
+            <input type="submit">
+        </form>
+    </div>
+
+    <div id="search">
+        <p>Enter name or id of an item</p>
+        <input type="text" ng-model="search"  />
+    </div>
+
+    <div id="reviewItems" ng-show="showItems">
+        <table>
+            <tr>
+                <th>
+                    <a href="" ng-click="sortField='name'; reverse=!reverse">Name</a>
+                </th>
+                <th>
+                    <a href="" ng-click="sortField='id'; reverse=!reverse">ID</a>
+                </th>
+                <th>
+
+                </th>
+            </tr>
+            <tr ng-repeat="item in items | filter:search | orderBy:sortField:reverse">
+                <td>{{item.name}}</td>
+                <td>{{item.id}}</td>
+                <td><button ng-click="fetchReview(item.id)"></button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="reviewTable" ng-show="showTable">
+        <table>
+            <tr>
+                <th>
+                    <a href="" ng-click="sortField='user'; reverse=!reverse">User</a>
+                </th>
+                <th>
+                    <a href="" ng-click="sortField='review'; reverse=!reverse">Review</a>
+                </th>
+                <th>
+                    <a href="" ng-click="sortField='rating'; reverse=!reverse">Rating</a>
+                </th>
+            </tr>
+
+            <tr ng-repeat="review in reviews | orderBy:sortField:reverse">
+                <td>{{review.user}}</td>
+                <td>{{review.name}}</td>
+                <td>{{review.rating}}</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

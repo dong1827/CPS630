@@ -6,11 +6,11 @@ $response = ["success" => false];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["name"]);
-    $telNo = trim($_POST["phone"]);  
+    $telNo = trim($_POST["phone"]);
     $email = trim($_POST["email"]);
     $address = trim($_POST["address"]);
-    $cityCode = trim($_POST["cityCode"]); 
-    $loginId = trim($_POST["loginId"]);   
+    $cityCode = trim($_POST["cityCode"]);
+    $loginId = trim($_POST["loginId"]);
     $password = trim($_POST["password"]);
 
     if (empty($name) || empty($telNo) || empty($email) || empty($address) || empty($cityCode) || empty($loginId) || empty($password)) {
@@ -31,11 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    $salt = base64_encode(mcrypt_create_iv(12), MCRYPT_DEV_URANDOM);
+    $hashedPassword = md5($password.$salt);
 
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-    $stmt = $conn->prepare("INSERT INTO User (name, telNo, email, address, cityCode, loginId, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $name, $telNo, $email, $address, $cityCode, $loginId, $hashedPassword);
+    $stmt = $conn->prepare("INSERT INTO User (name, telNo, email, address, cityCode, loginId, password, salt) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $name, $telNo, $email, $address, $cityCode, $loginId, $hashedPassword, $salt);
 
     if ($stmt->execute()) {
         $response["success"] = true;

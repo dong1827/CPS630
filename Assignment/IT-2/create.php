@@ -10,7 +10,8 @@ $sql = "CREATE TABLE User (
     cityCode VARCHAR(8) NOT NULL,
     loginId VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    balance FLOAT(10,2)
+    balance FLOAT(10,2),
+    salt VARCHAR(255) NOT NULL
 )";
 
 if (mysqli_query($conn, $sql)) {
@@ -100,5 +101,21 @@ else {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
+$sql = "CREATE TABLE Reviews (
+    itemId INT(6) NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    comment TEXT,
+    rating int(5)
+    PRIMARY KEY (itemId, username),
+    FOREIGN KEY (itemId) REFERENCES Item(itemId),
+    FOREIGN KEY (username) REFERENCES User(loginId)
+)";
+    
+if (mysqli_query($conn, $sql)) {
+    echo "Table created successfully";
+}
+else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
     
 mysqli_close($conn);
