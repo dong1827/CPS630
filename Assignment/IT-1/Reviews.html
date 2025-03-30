@@ -14,11 +14,11 @@
         <form class="hidden" id="reviewForm" action="../IT-2/review.php" method="POST">
             <input type="hidden" id="username" name="username">
             <label>
-                <input type="text" id="itemID">
+                <input type="text" id="itemID" name="itemID">
                 Enter the Id of the item you want to leave a review
             </label><br>
             <label>
-                <input type="text" id="reviewText">
+                <input type="text" id="reviewText" name="reviewText">
                 Write a review
             </label><br>
 
@@ -87,8 +87,8 @@
             </tr>
 
             <tr ng-repeat="review in reviews | orderBy:sortField:reverse">
-                <td>{{review.user}}</td>
-                <td>{{review.name}}</td>
+                <td>{{review.username}}</td>
+                <td>{{review.comment}}</td>
                 <td>{{review.rating}}</td>
             </tr>
         </table>
