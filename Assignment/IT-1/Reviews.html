@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews</title>
+    <link rel="stylesheet" href="Reviews.css">
     <script src="https://code.angularjs.org/1.5.0/angular.min.js" ></script>
     <script src="Reviews.js"></script>
 </head>
@@ -10,7 +11,7 @@
 <body ng-controller="reviewController">
     <div id="write"> 
         <button onclick="toggleForm()">Write a Review</button>
-        <form class="hidden" id="reviewForm" action="review.php" method="POST">
+        <form class="hidden" id="reviewForm" action="../IT-2/review.php" method="POST">
             <input type="hidden" id="username" name="username">
             <label>
                 <input type="text" id="itemID">
@@ -61,13 +62,12 @@
                     <a href="" ng-click="sortField='id'; reverse=!reverse">ID</a>
                 </th>
                 <th>
-
                 </th>
             </tr>
             <tr ng-repeat="item in items | filter:search | orderBy:sortField:reverse">
-                <td>{{item.name}}</td>
-                <td>{{item.id}}</td>
-                <td><button ng-click="fetchReview(item.id)"></button></td>
+                <td>{{item.itemName}}</td>
+                <td>{{item.itemId}}</td>
+                <td><button ng-click="fetchReview(item.itemId)">view review</button></td>
             </tr>
         </table>
     </div>

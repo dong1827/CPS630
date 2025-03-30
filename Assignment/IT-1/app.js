@@ -1,11 +1,9 @@
 var app = angular.module("OSPApp", ["ngRoute"]);
 
-app.config(function($routeProvider, $locationProvider) {
-    $locationProvider.hashPrefix('');
-    
+app.config(function($routeProvider) {   
     $routeProvider
         .when("/", {
-            templateUrl: "home.html"
+            templateUrl: "Home.html"
         })
         .when("/about", {
             templateUrl: "AboutUs.html"

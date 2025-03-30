@@ -53,5 +53,9 @@ elseif (isset($_POST["user"])) {
     }
 }
 
+else {
+    echo $_SERVER['REQUEST_METHOD'];
+    print_r($_POST);
+}
 $conn->close();
 ?>

@@ -9,12 +9,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src="app.js" defer></script>
+    <script src="navbar.js" defer></script>
 </head>
 <body>
-    <div id="navbar-container"></div>
+    <nav class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo">
+        </div>
+        <div class="links">
+          <a ng-href="#!/">Home</a>
+          <a ng-href="#!/about">About Us</a>
+          <a ng-href="#!/signup" id="signup-link">Sign Up</a>
+          <a ng-href="#!/signin" id="signin-link">Sign In</a>
+          <a ng-href="#!/reviews">Reviews</a>
+          <a ng-href="#!/services">Services</a>
+          <a ng-href="#!/cart"><i class="fas fa-shopping-cart"></i></a>
+          <a ng-href="#!/search">Search</a>
+          <a ng-href="#" id="logout-link" style="display: none;">Logout</a>
+          <div class="dbMaintain" id="dbM">
+            <button class="dropdownBtn" onclick="toggleDropdown()">DB Maintain</button>
+            <div class="dbContent" id="dbDropDown">
+                <a ng-href="#!/insert">Insert</a>
+                <a ng-href="#!/update">Update</a>
+                <a ng-href="#!/delete">Delete</a>
+                <a ng-href="#!/select">Select</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+
     <div ng-view></div>
 
-        
-    <script src="navbar.js" defer></script>
+    <footer>
+        <p>&copy; 2025 EasyShop. All rights reserved.</p>
+    </footer>
 </body>
 </html>
