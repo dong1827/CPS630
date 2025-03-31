@@ -30,6 +30,16 @@ body {
     cursor: pointer;
 }
 
+footer {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
 .dbMaintain {
     display: none;
 }
@@ -119,10 +129,4 @@ body {
     cursor: pointer;
 }
   
-footer {
-    background-color: #004080;
-    color: white;
-    padding: 10px;
-    margin-top: 20px;
-}
   

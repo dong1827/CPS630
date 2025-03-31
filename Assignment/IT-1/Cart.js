@@ -1,60 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let isLoggedIn = localStorage.getItem("userLoggedIn");
+app.controller("CartController", function ($scope, $location) {
+    $scope.isLoggedIn = localStorage.getItem("userLoggedIn") === "true";
 
-    if (!isLoggedIn || isLoggedIn !== "true") {
-        window.location.href = "SignIn.html"; 
-        return; 
-    }
-
-    loadCart();
-});
-
-function loadCart() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let cartContainer = document.getElementById("cart-items");
-    let cartTotal = document.getElementById("cart-total");
-    let checkoutButton = document.getElementById("checkout-btn");
-    sessionStorage.setItem("cartItems", JSON.stringify(cart));
-
-    cartContainer.innerHTML = ""; 
-    let total = 0;
-
-    if (cart.length === 0) {
-        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-        checkoutButton.style.display = "none"; 
+    if (!$scope.isLoggedIn) {
+        $location.path("/signin"); 
         return;
     }
 
-    checkoutButton.style.display = "block"; 
+    $scope.cart = JSON.parse(localStorage.getItem("cart")) || [];
+    $scope.total = 0;
 
-    cart.forEach((item, index) => {
-        let itemElement = document.createElement("div");
-        itemElement.classList.add("cart-item");
-        itemElement.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div class="item-details">
-                <h3>${item.name}</h3>
-                <p>Price: $${item.price}</p>
-                <p>Quantity: ${item.quantity}</p>
-                <button id="remove" onclick="removeFromCart(${index})">Remove</button>
-            </div>
-        `;
-        cartContainer.appendChild(itemElement);
-        total += item.price * item.quantity;
-    });
+    $scope.calculateTotal = function () {
+        $scope.total = $scope.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    };
 
-    cartTotal.textContent = total.toFixed(2);
-}
+    $scope.removeFromCart = function (index) {
+        $scope.cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify($scope.cart));
+        $scope.calculateTotal();
+    };
 
-function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.splice(index, 1); 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    loadCart(); 
-}
+    $scope.checkout = function () {
+        sessionStorage.setItem("cartItems", JSON.stringify($scope.cart));
+        $location.path("/payment");
+    };
 
-document.getElementById("checkout-btn").addEventListener("click", function () {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    sessionStorage.setItem("cartItems", JSON.stringify(cart));
-    window.location.href = "Payment.html";
+    $scope.calculateTotal();
 });

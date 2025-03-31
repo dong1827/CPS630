@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="Cart.css">
-</head>
+<link rel="stylesheet" href="Cart.css"> 
+<div class="cart-page" ng-controller="CartController">
 
-<body>
-    <div id="navbar-container"></div>
-
-    <div class="msg">
-        <h2>Your Cart</h2>
+    <header class="cart-header">
+        <h1>Shopping Cart</h1>
         <p>Review your selected items before checkout.</p>
-    </div>
+    </header>
 
-    <div id="cart-items"></div>
+    <section id="cart-items">
+        <p ng-if="cart.length === 0">Your cart is empty.</p>
+        
+        <div class="cart-item" ng-repeat="item in cart track by $index">
+            <img ng-src="{{item.image}}" alt="{{item.name}}">
+            <div class="item-details">
+                <h3>{{ item.name }}</h3>
+                <p>Price: ${{ item.price }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <button class="remove-btn" ng-click="removeFromCart($index)">Remove</button>
+            </div>
+        </div>
+    </section>
     
-    <div class="cart-summary">
-        <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
-        <button id="checkout-btn">Proceed to Checkout</button>
+    <div class="cart-summary" ng-if="cart.length > 0">
+        <p><strong>Total:</strong> ${{ total | number:2 }}</p>
+        <button class="checkout-btn" ng-click="checkout()">Proceed to Checkout</button>
     </div>
+</div>
 
-    <script src="Cart.js"></script>
-    <script src="Navbar.js" defer></script>
-</body>
-</html>

@@ -22,8 +22,20 @@ app.config(function($routeProvider) {
         .when("/services", {
             templateUrl: "Service.html"
         })
+        .when("/shopping", {
+            templateUrl: "Shopping.html",
+            controller: "ShoppingController"
+        })
+        .when("/delivery", {
+            templateUrl: "Delivery.html"
+        })
+        .when("/payment", {
+            templateUrl: "Payment.html",
+            controller: "PaymentController"
+        })
         .when("/cart", {
-            templateUrl: "cart.html"
+            templateUrl: "cart.html",
+            controller: "CartController"
         })
         .when("/search", {
             templateUrl: "../IT-2/search.html"
@@ -56,6 +68,9 @@ app.controller('MainController', function($scope, $location) {
     $scope.logout = function() {
         localStorage.removeItem("userLoggedIn");
         localStorage.removeItem("loginId");
+        sessionStorage.removeItem("cartItems");
+        sessionStorage.removeItem("deliveryInfo");
+        sessionStorage.removeItem("orderDetails"); 
         $scope.isUserLoggedIn = false;
         $location.path('/signin');
     };

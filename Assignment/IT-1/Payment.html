@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="Home.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+<body ng-controller="PaymentController">
     <div id="navbar-placeholder"></div>
     
     <div class="container">
@@ -18,55 +18,57 @@
             <div class="order-summary">
                 <h2>Cart</h2>
                 <div id="cart-items">
+                    <div ng-repeat="item in cartItems">
+                        <p>{{ item.name }} - ${{ item.price }} x {{ item.quantity }}</p>
+                    </div>
                 </div>
                 <div class="total-section">
-                    <p><span>Subtotal:</span> <span id="subtotal">$0.00</span></p>
-                    <p><span>Delivery:</span> <span id="delivery-fee">$0.00</span></p>
-                    <p class="final-total"><span>Final Total:</span> <span id="total-price">$0.00</span></p>
+                    <p><span>Subtotal:</span> <span id="subtotal">{{ subtotal | currency }}</span></p>
+                    <p><span>Delivery:</span> <span id="delivery-fee">{{ deliveryFee | currency }}</span></p>
+                    <p class="final-total"><span>Final Total:</span> <span id="total-price">{{ totalPrice | currency }}</span></p>
                 </div>
             </div>
             
             <div class="payment-form">
-                <form id="payment-form" action="../IT-2/processPayment.php" method="POST">
+                <form id="payment-form" ng-submit="processPayment()" novalidate>
                     <div class="form-group">
                         <label for="card-number">Credit Card Number:</label>
-                        <input type="text" id="card-number" name="cardNumber" required>
+                        <input type="text" id="card-number" name="cardNumber" ng-model="cardNumber" ng-change="formatCardNumber($event)" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="cvv">CVV:</label>
-                        <input type="text" id="cvv" name="cvv" required>
+                        <input type="text" id="cvv" name="cvv" ng-model="cvv" ng-change="formatCVV($event)" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="expiry-date">Card Expiry Date:</label>
-                        <input type="text" id="expiry-date" name="expiryDate" placeholder="MM/YY" required>
+                        <input type="text" id="expiry-date" name="expiryDate" ng-model="expiryDate" ng-change="formatExpiryDate($event)" placeholder="MM/YY" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" name="firstName" required>
+                        <input type="text" id="first-name" name="firstName" ng-model="firstName" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="last-name">Last Name:</label>
-                        <input type="text" id="last-name" name="lastName" required>
+                        <input type="text" id="last-name" name="lastName" ng-model="lastName" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="billing-address">Billing Address:</label>
-                        <input type="text" id="billing-address" name="billingAddress" required>
+                        <input type="text" id="billing-address" name="billingAddress" ng-model="billingAddress" required>
                     </div>
                     
-                    <input type="hidden" id="user-id" name="userId">
+                    <input type="hidden" id="user-id" name="userId" ng-value="userId">
                     
-                    <button type="submit" class="submit-btn">Pay and Submit Order</button>
+                    <button type="submit" class="submit-btn" ng-disabled="isProcessing">Pay and Submit Order</button>
                 </form>
             </div>
         </div>
     </div>
     
-    <script src="Payment.js"></script>
-    <script src="Navbar.js" defer></script>
+    <script src="Payment.js" defer></script>
 </body>
 </html>

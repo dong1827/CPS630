@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Furniture Shopping</title>
-  <link rel="stylesheet" href="Shopping.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-    <div id="navbar-container"></div>
-
+<link rel="stylesheet" href="Shopping.css"> 
+<div class="shopping-page">
     <header class="hero">
         <h1>Furniture Shopping</h1>
         <p>Browse our furniture collection and add your favorites to the cart <span id="drop-area">here</span>.</p>
     </header>
 
-    <section class="products" id="product-list"> </section>
+    <section class="products">
+        <div class="product" ng-repeat="product in products" 
+             data-id="{{product.itemId}}" 
+             data-price="{{product.price}}"
+             draggable="true" 
+             ng-dragstart="drag($event, product)">
 
-    <script src="Shopping.js"></script>
-    <script src="Navbar.js" defer></script>
-    <footer>
-        <p>&copy; 2025 EasyShop. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+            <img ng-src="{{product.imagePath}}" alt="{{product.itemName}}">
+            <h2>{{product.itemName}}</h2>
+            <p class="price">${{product.price}}</p>
+            <button class="add-to-cart" ng-click="addToCart(product)">Add to Cart</button>
+        </div>
+    </section>
+</div>
+

@@ -30,6 +30,16 @@ body {
     cursor: pointer;
 }
 
+footer {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
 .dbMaintain {
     display: none;
 }
@@ -80,7 +90,7 @@ p {
     margin-top: 10px;
 }
 
-#remove {
+.remove-btn {
     background-color: red;
     color: white;
     border: none;
@@ -93,7 +103,7 @@ p {
     font-size: 1.2em;
 }
 
-#checkout-btn {
+.checkout-btn {
     margin: 20px auto 0;
     background-color: green;
     color: white;
