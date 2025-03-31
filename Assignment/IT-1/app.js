@@ -9,10 +9,12 @@ app.config(function($routeProvider) {
             templateUrl: "AboutUs.html"
         })
         .when("/signup", {
-            templateUrl: "signup.html"
+            templateUrl: "SignUp.html",
+            controller: "SignUpController"
         })
         .when("/signin", {
-            templateUrl: "signin.html"
+            templateUrl: "SignIn.html",
+            controller: "SignInController"
         })
         .when("/reviews", {
             templateUrl: "Reviews.html"
@@ -41,4 +43,11 @@ app.config(function($routeProvider) {
         .otherwise({
             redirectTo: "/"
         });
+
+});
+app.controller('MainController', function($scope, $location) {
+    $scope.isSignUpOrIn = function() {
+        var path = $location.path();
+        return path === '/signin' || path === '/signup';
+    };
 });
