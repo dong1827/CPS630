@@ -26,6 +26,14 @@
                     <p><span>Subtotal:</span> <span id="subtotal">{{ subtotal | currency }}</span></p>
                     <p><span>Delivery:</span> <span id="delivery-fee">{{ deliveryFee | currency }}</span></p>
                     <p class="final-total"><span>Final Total:</span> <span id="total-price">{{ totalPrice | currency }}</span></p>
+                    <div class="shipping-options">
+                        <label>
+                            <input type="radio" name="shipping" value="standard" checked> Standard Shipping (Free)
+                        </label>
+                        <label>
+                            <input type="radio" name="shipping" value="express"> Express Shipping ($35)
+                        </label>
+                    </div>
                 </div>
             </div>
             

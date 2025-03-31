@@ -11,12 +11,29 @@ app.controller('PaymentController', function($scope, $location) {
 
     $scope.cartItems = cartItems;
     $scope.subtotal = calculateSubtotal(cartItems);
-    const deliveryFee = 0; 
-    $scope.totalPrice = $scope.subtotal + deliveryFee;
+    $scope.deliveryFee = 0; 
+    $scope.totalPrice = $scope.subtotal + $scope.deliveryFee;
 
     // Set the userId if present
     $scope.userId = userInfo.userId || '';
-    
+
+    $scope.updateShipping = function() {
+        const shippingOption = document.querySelector('input[name="shipping"]:checked').value;
+
+        if (shippingOption === 'express') {
+            $scope.shippingFee = 35;
+        } else {
+            $scope.shippingFee = 0; 
+        }
+        $scope.deliveryFee = $scope.shippingFee;
+        $scope.totalPrice = $scope.subtotal + $scope.shippingFee;
+        $scope.$apply();
+    };
+
+    document.querySelectorAll('input[name="shipping"]').forEach(function(input) {
+        input.addEventListener('change', $scope.updateShipping);
+    });
+
     $scope.processPayment = function() {
         if (!validatePaymentForm()) {
             return;

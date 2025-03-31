@@ -33,6 +33,9 @@ app.config(function($routeProvider) {
             templateUrl: "Payment.html",
             controller: "PaymentController"
         })
+        .when("/express", {
+            templateUrl: "Express.html",
+        })
         .when("/cart", {
             templateUrl: "cart.html",
             controller: "CartController"
