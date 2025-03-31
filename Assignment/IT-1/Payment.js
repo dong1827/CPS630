@@ -8,7 +8,10 @@ app.controller('PaymentController', function($scope, $location) {
         $location.path('/shopping');
         return;
     }
+    const currentDate = new Date();
+    const targetDate = new Date('2025-05-01');
 
+    $scope.isExpressAvailable = currentDate <= targetDate;
     $scope.cartItems = cartItems;
     $scope.subtotal = calculateSubtotal(cartItems);
     $scope.deliveryFee = 0; 
@@ -20,7 +23,7 @@ app.controller('PaymentController', function($scope, $location) {
     $scope.updateShipping = function() {
         const shippingOption = document.querySelector('input[name="shipping"]:checked').value;
 
-        if (shippingOption === 'express') {
+        if (shippingOption === 'express' && $scope.isExpressAvailable) {
             $scope.shippingFee = 35;
         } else {
             $scope.shippingFee = 0; 
@@ -40,7 +43,7 @@ app.controller('PaymentController', function($scope, $location) {
         }
 
         const jsonData = {
-            amount: $scope.subtotal,
+            amount: $scope.totalPrice,
             userId: $scope.userId,
             deliveryAddress: deliveryInfo.address || '',
             items: cartItems,
