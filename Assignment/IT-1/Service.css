@@ -85,7 +85,7 @@ body {
     background-color: #0059b3; ;
 }
 
-footer {
+/**footer {
     background-color: #004080;
     color: white;
     padding: 10px;
@@ -93,4 +93,4 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-}
+}**/

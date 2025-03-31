@@ -1,3 +1,13 @@
 .hidden {
     display: none;
 }
+
+footer {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
