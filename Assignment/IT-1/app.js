@@ -46,8 +46,17 @@ app.config(function($routeProvider) {
 
 });
 app.controller('MainController', function($scope, $location) {
+    $scope.isUserLoggedIn = localStorage.getItem("userLoggedIn") === "true";
+
     $scope.isSignUpOrIn = function() {
         var path = $location.path();
         return path === '/signin' || path === '/signup';
+    };
+
+    $scope.logout = function() {
+        localStorage.removeItem("userLoggedIn");
+        localStorage.removeItem("loginId");
+        $scope.isUserLoggedIn = false;
+        $location.path('/signin');
     };
 });
