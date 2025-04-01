@@ -28,7 +28,7 @@
                     <p class="final-total"><span>Final Total:</span> <span id="total-price">{{ totalPrice | currency }}</span></p>
                     <div class="shipping-options">
                         <label>
-                            <input type="radio" name="shipping" value="standard" ng-model="shippingOption"> Standard Shipping (Free)
+                            <input type="radio" name="shipping" value="standard" ng-model="shippingOption" checked> Standard Shipping (Free)
                         </label>
                         <label>
                             <input type="radio" name="shipping" value="express" ng-model="shippingOption" ng-change="updateShipping()"> Express Shipping ($35)
@@ -38,7 +38,23 @@
             </div>
             
             <div class="payment-form">
-                <form id="payment-form" ng-submit="processPayment()" novalidate>
+                <div class="payment-options">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-method-selection">
+                        <label>
+                            <input type="radio" name="paymentMethod" value="card" ng-model="paymentMethod" checked> Credit/Debit Card
+                        </label>
+                        <label>
+                            <input type="radio" name="paymentMethod" value="giftcard" ng-model="paymentMethod"> Gift Card
+                        </label>
+                        <label>
+                            <input type="radio" name="paymentMethod" value="cash" ng-model="paymentMethod"> Cash on Delivery
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Credit/Debit Card Form -->
+                <form id="card-payment-form" ng-submit="processPayment()" ng-show="paymentMethod === 'card'" novalidate>
                     <div class="form-group">
                         <label for="card-number">Credit Card Number:</label>
                         <input type="text" id="card-number" name="cardNumber" ng-model="cardNumber" ng-change="formatCardNumber($event)" required>
@@ -70,8 +86,62 @@
                     </div>
                     
                     <input type="hidden" id="user-id" name="userId" ng-value="userId">
+
                     
                     <button type="submit" class="submit-btn" ng-disabled="isProcessing">Pay and Submit Order</button>
+                </form>
+                
+                <!-- Gift Card Form -->
+                <form id="giftcard-payment-form" ng-submit="processPayment()" ng-show="paymentMethod === 'giftcard'" novalidate>
+                    <div class="form-group">
+                        <label for="gift-card-number">Gift Card Number:</label>
+                        <input type="text" id="gift-card-number" name="giftCardNumber" ng-model="giftCardNumber" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gift-card-pin">PIN:</label>
+                        <input type="text" id="gift-card-pin" name="giftCardPin" ng-model="giftCardPin" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gift-first-name">First Name:</label>
+                        <input type="text" id="gift-first-name" name="giftFirstName" ng-model="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gift-last-name">Last Name:</label>
+                        <input type="text" id="gift-last-name" name="giftLastName" ng-model="lastName" required>
+                    </div>
+                    
+                    <input type="hidden" id="gift-user-id" name="giftUserId" ng-value="userId">
+
+                    
+                    <button type="submit" class="submit-btn" ng-disabled="isProcessing">Pay with Gift Card</button>
+                </form>
+                
+                <!-- Cash on Delivery Form -->
+                <form id="cash-payment-form" ng-submit="processPayment()" ng-show="paymentMethod === 'cash'" novalidate>
+                    <div class="form-group">
+                        <label for="cash-first-name">First Name:</label>
+                        <input type="text" id="cash-first-name" name="cashFirstName" ng-model="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cash-last-name">Last Name:</label>
+                        <input type="text" id="cash-last-name" name="cashLastName" ng-model="lastName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-number">Contact Number:</label>
+                        <input type="text" id="contact-number" name="contactNumber" ng-model="contactNumber" required>
+                    </div>
+                    
+                    <p class="cash-notice">Please have the exact amount ready for the delivery driver. Payment will be collected upon delivery.</p>
+                    
+                    <input type="hidden" id="cash-user-id" name="cashUserId" ng-value="userId">
+
+                    
+                    <button type="submit" class="submit-btn" ng-disabled="isProcessing">Confirm Cash on Delivery</button>
                 </form>
             </div>
         </div>

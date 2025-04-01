@@ -26,6 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($hashedPassword == $user["password"]) {
             $response["success"] = true;
             $response["message"] = "Login successful!";
+            
+            // Add user ID to the response
+            $response["userId"] = (int)$user["userId"];
         } else {
             $response["message"] = "Incorrect password!";
         }

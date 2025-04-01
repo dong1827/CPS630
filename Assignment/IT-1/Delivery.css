@@ -97,6 +97,15 @@ h1, h2, h3 {
     color: #004080;
 }
 
+
+.time-note {
+    display: block;
+    color: #004080;
+    font-size: 0.85em;
+    margin-top: 5px;
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
     .delivery-container {
         flex-direction: column;

@@ -74,6 +74,11 @@ input[type="text"] {
     background-color: #005000;
 }
 
+.submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
 .total-section {
     margin-top: 20px;
     border-top: 1px solid #ddd;
@@ -96,6 +101,47 @@ input[type="text"] {
     justify-content: space-between;
     padding: 5px 0;
     border-bottom: 1px solid #eee;
+}
+
+/* New Payment Method Styles */
+
+.payment-options {
+    margin-bottom: 20px;
+}
+
+.payment-method-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.payment-method-selection label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.payment-method-selection label:hover {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.payment-method-selection input[type="radio"] {
+    margin-right: 8px;
+}
+
+.cash-notice {
+    background-color: #fffde7;
+    padding: 12px;
+    border-left: 4px solid #ffd600;
+    margin: 15px 0;
+    border-radius: 2px;
 }
 
 footer {

@@ -1,58 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation - OSP</title>
-    <link rel="stylesheet" href="OrderConfirmation.css">
-    <link rel="stylesheet" href="Home.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <div id="navbar-container"></div>
-    
-    <div class="container">
-        <div class="confirmation-card">
-            <div class="header">
-                <h1>Order Confirmation</h1>
-                <div class="checkmark">✓</div>
+<link rel="stylesheet" href="OrderConfirmation.css">
+<div class="container">
+    <div class="content">
+        <div class="order-success" ng-if="!hasError">
+            <h1>Order Confirmation</h1>
+            <p class="success-message">Thank you for your order! Your order has been successfully placed.</p>
+            
+            <div class="express-badge" ng-if="isExpressDelivery">
+                <span class="express-text">EXPRESS DELIVERY</span>
             </div>
             
-            <div class="content">
-                <p class="thank-you">Thank you for your order!</p>
-                
-                <div class="order-details">
-                    <h2>Order Information</h2>
-                    <div class="detail-row">
-                        <span class="label">Order Number:</span>
-                        <span class="value" id="order-id">Loading...</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Order Date:</span>
-                        <span class="value" id="order-date">Loading...</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Expected Delivery:</span>
-                        <span class="value" id="delivery-date">Loading...</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Payment Code:</span>
-                        <span class="value" id="payment-code">Loading...</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Total Amount:</span>
-                        <span class="value" id="total-price">Loading...</span>
-                    </div>
+            <div class="order-details">
+                <div class="detail-row">
+                    <span class="detail-label">Order ID:</span>
+                    <span class="detail-value" ng-bind="orderId"></span>
                 </div>
                 
-                <div class="action-buttons">
-                    <a href="Home.html" class="home-btn">Back to Home</a>
+                <div class="detail-row">
+                    <span class="detail-label">Order Date:</span>
+                    <span class="detail-value" ng-bind="orderDate"></span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Delivery Date:</span>
+                    <span class="detail-value" ng-bind="deliveryDate"></span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Payment Code:</span>
+                    <span class="detail-value" ng-bind="paymentCode"></span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Total Price:</span>
+                    <span class="detail-value" ng-bind="totalPrice"></span>
                 </div>
             </div>
+            
+            <div class="next-steps">
+                <p>A confirmation email has been sent to your registered email address.</p>
+                <p ng-if="isExpressDelivery" class="express-note">Your order will be delivered tomorrow with our express shipping service!</p>
+                <p ng-if="!isExpressDelivery">Your order will be delivered on the scheduled date.</p>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="#/" class="btn back-home-btn">Back to Home</a>
+            </div>
+        </div>
+        
+        <div class="error-message" ng-if="hasError">
+            <h2>Oops!</h2>
+            <p ng-bind="errorMessage"></p>
+            <p>Redirecting to home page...</p>
         </div>
     </div>
-    
-    <script src="OrderConfirmation.js"></script>
-    <script src="Navbar.js" defer></script>
-</body>
-</html>
+</div>
