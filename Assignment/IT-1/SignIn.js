@@ -19,8 +19,6 @@ angular.module('OSPApp').controller('SignInController', function($scope, $http, 
                 localStorage.setItem("userLoggedIn", "true");  
                 localStorage.setItem("loginId", username); 
 
-                $scope.isUserLoggedIn = true;
-
                 alert("Sign in successful!");
                 $location.path("/"); 
             } else {

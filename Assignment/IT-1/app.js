@@ -62,7 +62,11 @@ app.config(function($routeProvider) {
 
 });
 app.controller('MainController', function($scope, $location, $http) {
-    $scope.isUserLoggedIn = localStorage.getItem("userLoggedIn") === "true";
+    $scope.$watch(function() {
+        return localStorage.getItem("userLoggedIn");
+    }, function(newVal) {
+        $scope.isUserLoggedIn = newVal === "true";
+    });
 
     $scope.isSignUpOrIn = function() {
         var path = $location.path();
