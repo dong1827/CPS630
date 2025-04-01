@@ -30,14 +30,6 @@ body {
     cursor: pointer;
 }
 
-.dbMaintain {
-    display: none;
-}
-
-.dbContent {
-    display: none;
-}
-
 .show {
     display: block;
 }

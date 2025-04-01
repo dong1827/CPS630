@@ -11,7 +11,8 @@ $sql = "CREATE TABLE User (
     loginId VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     balance FLOAT(10,2),
-    salt VARCHAR(255) NOT NULL
+    salt VARCHAR(255) NOT NULL,
+    isAdmin int NOT NULL DEFAULT 0
 )";
 
 if (mysqli_query($conn, $sql)) {

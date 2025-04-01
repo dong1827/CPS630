@@ -1,15 +1,18 @@
 <?php 
 include 'conn.php';
 
-$loginID = $_POST["username"];
+$jsonInput = file_get_contents("php://input");
+$data = json_decode($jsonInput, true);
 
-$sql = "SELECT userID FROM User WHERE loginID = \"" . $loginID . "\"";
+$loginID = $data["username"];
+
+$sql = "SELECT isAdmin FROM User WHERE loginID = \"" . $loginID . "\"";
 
 $result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
 
-if ($row['userID'] == 0) {
+if ($row['isAdmin'] == 1) {
     echo "Admin";
 }
  

@@ -8,10 +8,10 @@ $(document).ready(function() {
 function fetchSQL(sql) {
     $('#result').html("<p>loading...</p>");
     $.ajax({
-        url: 'sql.php',
+        url: '../IT-2/sql.php',
         method: 'POST',
         dataType: 'html',
-        data: { 
+        data: {     
             sql: sql 
         },
         success: function(response) {
@@ -64,7 +64,7 @@ function selectSQL() {
 
     $('#result').html("<p>loading...</p>");
     $.ajax({
-        url: 'select.php',
+        url: '../IT-2/select.php',
         method: 'POST',
         dataType: 'html',
         data: { 

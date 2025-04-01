@@ -60,7 +60,7 @@ app.config(function($routeProvider) {
         });
 
 });
-app.controller('MainController', function($scope, $location) {
+app.controller('MainController', function($scope, $location, $http) {
     $scope.isUserLoggedIn = localStorage.getItem("userLoggedIn") === "true";
 
     $scope.isSignUpOrIn = function() {
@@ -77,4 +77,25 @@ app.controller('MainController', function($scope, $location) {
         $scope.isUserLoggedIn = false;
         $location.path('/signin');
     };
+
+    var url = '../IT-2/checkAdmin.php'
+    var data = {username: localStorage.getItem("loginId")};
+    $http.post(url, JSON.stringify(data), {
+        headers: { "Content-Type": "application/json" }
+        })
+        .then(function (response) {
+            if (response.data == 'Admin') {
+                $scope.isAdmin = true;
+            }
+            else {
+                $scope.isAdmin = false;
+            }
+            console.log($scope.isAdmin);
+        });
+
+    $scope.dropdownVisible = false;
+    $scope.toggleDropdown = function () {
+        $scope.dropdownVisible = !$scope.dropdownVisible;
+    }
 });
+

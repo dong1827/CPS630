@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="app.js" defer></script>
     <script src="navbar.js" defer></script>
     <script src="signin.js" defer></script>
@@ -15,6 +16,7 @@
     <script src="shopping.js" defer></script>
     <script src="cart.js" defer></script>
     <script src="payment.js" defer></script>
+    <script src="../IT-2/sql.js" defer></script>
 </head>
 <body ng-controller="MainController" >
     <div ng-if="!isSignUpOrIn()">
@@ -32,9 +34,9 @@
             <a ng-href="#!/cart"><i class="fas fa-shopping-cart"></i></a>
             <a ng-href="#!/search">Search</a>
             <a ng-href="#!/signin" id="logout-link" ng-if="isUserLoggedIn" ng-click="logout()">Logout</a>
-            <div class="dbMaintain" id="dbM">
-              <button class="dropdownBtn" onclick="toggleDropdown()">DB Maintain</button>
-              <div class="dbContent" id="dbDropDown">
+            <div class="dbMaintain" id="dbM" ng-show="isAdmin">
+              <button class="dropdownBtn" ng-click="toggleDropdown()">DB Maintain</button>
+              <div class="dbContent" id="dbDropDown" ng-show="dropdownVisible">
                   <a ng-href="#!/insert">Insert</a>
                   <a ng-href="#!/update">Update</a>
                   <a ng-href="#!/delete">Delete</a>
