@@ -23,7 +23,6 @@ elseif (isset($_POST["username"])) {
     $username = $_POST["username"];
     $comment = $_POST["reviewText"];
     $rating = $_POST["rating"];
-
     $sql = "INSERT INTO Reviews (itemId, username, comment, rating)
             VALUES ($item, '$username', '$comment', $rating)";
 

@@ -17,7 +17,8 @@ app.config(function($routeProvider) {
             controller: "SignInController"
         })
         .when("/reviews", {
-            templateUrl: "Reviews.html"
+            templateUrl: "Reviews.html",
+            controller: 'reviewController'
         })
         .when("/services", {
             templateUrl: "Service.html"
@@ -99,3 +100,71 @@ app.controller('MainController', function($scope, $location, $http) {
     }
 });
 
+app.controller('reviewController', function ($scope, $http, $location) {
+    $scope.rating = null;
+    
+    var url = '../IT-2/review.php';
+    $http.get(url)
+        .then(function (response) {
+            console.log("Full response:", response);
+            console.log("Response data:", response.data);
+            $scope.items = response.data;
+        });
+    $scope.sortField = 'name';
+    $scope.reverse = false;
+    $scope.showItems = true;
+    $scope.showTable = false; 
+
+    $scope.fetchReview = function (id) {
+        var reviewUrl = '../IT-2/review.php';
+        var data = {id: id};
+        $http.post(reviewUrl, JSON.stringify(data), {
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(function (response) {
+                $scope.reviews = response.data;
+                console.log(response.data);
+        });
+
+        $scope.sortField = 'username';
+        $scope.reverse = false;
+        $scope.showItems = false;
+        $scope.showTable = true;
+    };
+
+    $scope.username = localStorage.getItem("loginId");
+    $scope.showForm = false;
+    
+    $scope.toggleForm = function() {
+        $scope.showForm = !$scope.showForm;
+    };
+
+    $scope.submitReview = function() {
+        const formData = new FormData();
+        formData.append('username', $scope.username);
+        formData.append('itemID', $scope.itemID);
+        formData.append('reviewText', $scope.reviewText);
+        formData.append('rating', $scope.rating);
+
+        $http.post('../IT-2/review.php', formData, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        })
+        .then(function(response) {
+            $scope.itemID = '';
+            $scope.reviewText = '';
+            $scope.rating = '';
+            $scope.showForm = false;
+
+            if (response.data.error) {
+                alert("Error: " + response.data.error + "\nPlease ensure all fields are filled and you haven't reviewed this product before.");
+            } else {
+                alert("Thank you for reviewing our products!");
+            }
+        })
+        .catch(function(error) {
+            console.error("Submission error:", error);
+            alert("An error occurred while submitting your review.");
+        });
+    };
+});

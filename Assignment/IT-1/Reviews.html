@@ -1,4 +1,4 @@
-<html lang="en" ng-app="review">
+<html lang="en" ng-app="OSPApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,40 +10,30 @@
 
 <body ng-controller="reviewController">
     <div id="write"> 
-        <button onclick="toggleForm()">Write a Review</button>
-        <form class="hidden" id="reviewForm" action="../IT-2/review.php" method="POST">
-            <input type="hidden" id="username" name="username">
+        <button ng-click="toggleForm()">Write a Review</button>
+        <form ng-show="showForm" ng-submit="submitReview()" id="reviewForm">
+            <input type="hidden" ng-model="username">
             <label>
-                <input type="text" id="itemID" name="itemID">
-                Enter the Id of the item you want to leave a review
+                <input type="text" ng-model="itemID" required>
+                Enter the ID of the item
             </label><br>
             <label>
-                <input type="text" id="reviewText" name="reviewText">
+                <input type="text" ng-model="reviewText" required>
                 Write a review
             </label><br>
-
-            <label>
-                <input type="radio" name="rating" value="1">
-                1
-            </label><br>
-            <label>
-                <input type="radio" name="rating" value="2">
-                2
-            </label><br>
-            <label>
-                <input type="radio" name="rating" value="3">
-                3
-            </label><br>
-            <label>
-                <input type="radio" name="rating" value="4">
-                4
-            </label><br>
-            <label>
-                <input type="radio" name="rating" value="5">
-                5
-            </label><br>
-
-            <input type="submit">
+    
+            <div ng-repeat="n in [5,4,3,2,1]">
+                <label>
+                    <input type="radio" 
+                           ng-model="$parent.rating" 
+                           name="ratingGroup" 
+                           value="{{n}}" 
+                           required>
+                    {{n}}
+                </label><br>
+            </div>
+    
+            <input type="submit" value="Submit Review">
         </form>
     </div>
 

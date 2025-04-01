@@ -1,9 +1,10 @@
-var myapp = angular.module('review',[]);
+/*
+var myapp = angular.module('OSPApp',[]);
 myapp.controller('reviewController', function ($scope, $http) {
     var url = '../IT-2/review.php';
     $http.get(url)
         .then(function (response) {
-            console.log("Full response:", response); // Log everything
+            console.log("Full response:", response);
             console.log("Response data:", response.data);
             $scope.items = response.data;
         });
@@ -66,3 +67,4 @@ document.addEventListener("DOMContentLoaded", function() {
 function toggleForm() {
     document.getElementById("reviewForm").classList.toggle("hidden");
 }
+*/
